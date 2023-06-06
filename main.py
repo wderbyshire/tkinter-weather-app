@@ -43,15 +43,6 @@ class WeatherApp(tk.Tk):
         )
         self.city_input.grid(column=0, row=2, sticky=tk.NSEW, padx=20, pady=5)
 
-        self.city_sv2 = tk.StringVar(value=self.default_city_search)
-        self.city_input2 = tk.Entry(
-            self,
-            font=(FAMILY, LABEL_SIZE),
-            foreground=TEXT_INACTIVE_COLOUR,
-            textvariable=self.city_sv2,
-        )
-        self.city_input2.grid(column=0, row=4, sticky=tk.NSEW, padx=20, pady=5)
-
         self.city_search_button = tk.Button(
             self,
             font=(FAMILY, LABEL_SIZE),
