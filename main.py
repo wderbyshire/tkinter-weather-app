@@ -11,6 +11,7 @@ class WeatherApp(tk.Tk):
 
         self.geometry(GEOMETRY)
         self.title(ROOT_TITLE)
+        self.iconbitmap(default="weather.ico")
 
 
 if __name__ == "__main__":
