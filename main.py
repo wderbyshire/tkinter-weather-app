@@ -24,7 +24,7 @@ class WeatherApp(tk.Tk):
         self.search_label = tk.Label(
             self,
             font=(FAMILY, LABEL_SIZE, "bold"),
-            text="Search",
+            text="City Search",
             foreground=TEXT_MAIN_COLOUR,
         )
         self.search_label.grid(column=0, row=1, sticky=tk.NSEW, padx=5, pady=5)
@@ -38,9 +38,16 @@ class WeatherApp(tk.Tk):
         )
         self.city_input.grid(column=0, row=2, sticky=tk.NSEW, padx=20, pady=5)
 
+        self.city_search_button = tk.Button(
+            self,
+            font=(FAMILY, LABEL_SIZE),
+            text="Search",
+            width=10,
+        )
+        self.city_search_button.grid(column=0, row=3, sticky=tk.NS, padx=5, pady=5)
 
-        self.rowconfigure([0, 1, 2], weight=0)
-        self.rowconfigure(3, weight=1)
+        self.rowconfigure([0, 1, 2, 3], weight=0)
+        self.rowconfigure(4, weight=1)
         self.columnconfigure(0, weight=1)
 
 
