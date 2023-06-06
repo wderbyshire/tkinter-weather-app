@@ -71,7 +71,20 @@ class WeatherApp(tk.Tk):
             self.city_sv.set(self.default_city_search)
             self.city_input.configure(foreground=TEXT_INACTIVE_COLOUR)
             self.city_search_button.configure(state="disabled")
+        elif validation == "key":
+            self.validate_search_button(value)
 
+        return True
+
+    def validate_search_button(self, value):
+        allowed_characters = "abcdefghijklmnopqrstuvwxyz- "
+
+        for i in value:
+            if i not in allowed_characters:
+                self.city_search_button.configure(state="disabled")
+                return
+
+        self.city_search_button.configure(state="active")
 
 if __name__ == "__main__":
     app = WeatherApp()
