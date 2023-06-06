@@ -29,6 +29,16 @@ class WeatherApp(tk.Tk):
         )
         self.search_label.grid(column=0, row=1, sticky=tk.NSEW, padx=5, pady=5)
 
+        self.city_sv = tk.StringVar(value="Type a city here...")
+        self.city_input = tk.Entry(
+            self,
+            font=(FAMILY, LABEL_SIZE),
+            foreground=TEXT_INACTIVE_COLOUR,
+            textvariable=self.city_sv,
+        )
+        self.city_input.grid(column=0, row=2, sticky=tk.NSEW, padx=20, pady=5)
+
+
         self.rowconfigure([0, 1, 2], weight=0)
         self.rowconfigure(3, weight=1)
         self.columnconfigure(0, weight=1)
