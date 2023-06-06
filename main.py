@@ -4,6 +4,8 @@ import json
 import datetime
 from settings import *
 from tkinter import ttk
+
+
 class WeatherApp(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -56,6 +58,7 @@ class WeatherApp(tk.Tk):
             text="Search",
             width=10,
             state="disabled",
+            command=self.complete_search,
         )
         self.city_search_button.grid(column=0, row=3, sticky=tk.NS, padx=5, pady=5)
 
@@ -79,12 +82,18 @@ class WeatherApp(tk.Tk):
     def validate_search_button(self, value):
         allowed_characters = "abcdefghijklmnopqrstuvwxyz- "
 
-        for i in value:
+        for i in value.lower():
             if i not in allowed_characters:
                 self.city_search_button.configure(state="disabled")
                 return
 
         self.city_search_button.configure(state="active")
+
+    def complete_search(self):
+        search_url = "http://api.openweathermap.org/data/2.5/weather?q=" + self.city_sv.get() + "&appid=" + API_KEY
+        response = requests.get(search_url)
+        weather_info = response.json()
+
 
 if __name__ == "__main__":
     app = WeatherApp()
